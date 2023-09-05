@@ -461,6 +461,7 @@ h3 {
 .footer-txt {    
    color: #FFFFFF;   
    display: flex;
+   /* text-align: start ; */
    max-width: 264px;
    margin-bottom: 16px;
 }
@@ -544,6 +545,7 @@ box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
 }
 .subscribe-box-button-icons {
     margin-left: 16px;
+    fill: rgba(255, 255, 255, 1);
 }
 
 /* Backdrop */
