@@ -86,12 +86,15 @@ h3 {
 /*Page Header*/
 
 .header-page {
-    background: #FFF;    
+    background-color: #FFF;    
     /* height: 72px;  */
     border-bottom: 1px solid #e7e9fc;
     display: flex;
     align-items: center;
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
 }
 .logo {
     font-family: 'Raleway', sans-serif;
@@ -120,10 +123,10 @@ h3 {
     color: #404bbf;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-#studio::after {    
+#studio::after { 
+    content: '';   
     width: 48px;
-    height: 4px;
-    content: '';    
+    height: 4px;       
     border-radius: 2px;
     background:  #404BBF;
     position: absolute;
@@ -177,6 +180,8 @@ h3 {
    background-repeat: no-repeat;
    background-position: center; 
    background-size: cover;
+   position: relative;
+   
 }
 .hero-title {
     font-size: 56px; 
@@ -213,6 +218,7 @@ h3 {
     background-color: #404BBF;
     cursor: pointer;
 }
+
 
 /* Features sect2 */
 
@@ -368,10 +374,6 @@ h3 {
 /* фильтр добавляет тень вокруг самого изображения */
     filter: drop-shadow(10px -5px 5px rgba(252, 141, 7, 0.3));   
 }
-.feature-item:last-child .bg-icons-features:hover,
-.feature-item:last-child .bg-icons-features:focus {
-
-}
 /* Our Portfolio sect4 */
 
 #portfolio {
@@ -384,9 +386,8 @@ h3 {
     /* Make a flex container */
     display: flex;
      /* Make a flex container multiline - для переносу елементів списку на новий рядок якщо їм не вистачає місця в попередньому */
-    flex-wrap: wrap;    
-
-    /* Для списку в класі заданий стиль column-gap: 24px;
+    flex-wrap: wrap;
+/* Для списку в класі заданий стиль column-gap: 24px;
 для визначення горизонтальних відступів між пунктами списку (можна використовувати margin-right: 24px для тега li у класі, для кожного третього li використовуємо (.project-list:nth-child(2n + 1); margin-right: 0;) для обнулення відступів) */
 /* Set gap between rows and columns */
     column-gap: 24px;
@@ -445,9 +446,9 @@ h3 {
     gap: 120px;
     
 }
-.footer-con-txt {
+/* .footer-con-txt {
     margin-right: 120px;
-}
+} */
 .footer .logo {
      /* only for footer    */
    margin-right: 0;
@@ -458,9 +459,7 @@ h3 {
     color: #F4F4FD;
 }
 .footer-txt {    
-   line-height: 1.5;
-   color: #FFFFFF;
-   letter-spacing: 0.02em;
+   color: #FFFFFF;   
    display: flex;
    max-width: 264px;
    margin-bottom: 16px;
@@ -481,4 +480,200 @@ h3 {
 .footer-con-icons .link:hover,
 .footer-con-icons .link:focus {
 background-color: #31D0AA;
+}
+
+.box-email {
+    display: flex; 
+}
+.input-email {
+background: transparent;
+border: none;
+padding-left: 16px;
+color: rgba(255, 255, 255, 1);
+width: 264px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+}
+.footer-button-con {
+    background-color: #4D5AE5;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #ffffff;    
+    align-items: center;
+    justify-content: center;
+
+    display: flex;
+    margin-top: 0px;
+    margin-left: 24px;
+    gap:16px;    
+    height: 40px;
+    min-width: 165px;
+
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;    
+    border: none;    
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+/*для включения кастом теней*/
+    transition:box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+.footer-button-con:hover,
+.footer-button-con:focus {
+background-color: #404BBF;
+
+box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
+        1px 2px 4px 0px rgba(0, 255, 255, 0.7),
+        2px 4px 8px 0px rgba(0, 255, 255, 0.7),
+        2px 4px 16px 0px rgba(0, 255, 255, 0.7);
+}
+
+/* Backdrop */
+
+/* сброс default fieldset */
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.backdrop {
+   /* display: flex; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99999;
+    background-color: rgba(46, 47, 66, 0.40);
+} 
+ .is-hidden {
+     opacity: 0;
+     pointer-events: none;
+     visibility: hidden;
+ }
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: left;
+    width: 408px;
+    min-height: 584px;
+    border-radius: 4px;
+    padding: 72px 24px 24px 24px;
+    background: #FCFCFC;
+    box-shadow: 0px 1px 1px rgba (0, 0, 0, 0.14),
+      0px 0px 2px 1px rgba (0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);      
+}
+
+.modal-btn-close {
+    position:absolute;
+    top: 24px;
+    right: 24px;
+
+    width: 24px;
+    height: 24px;
+    background-color: #E7E9FC;    
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 50%;
+    fill: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    
+    transition:fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);      
+    }
+
+    /* inherit from .modal-btn-close*/
+    /* .icon-close {
+        fill: black;
+    } */
+
+.modal-btn-close:hover,
+.modal-btn-close:focus {
+    background-color: #404BBF;
+    fill: #E7E9FC;
+    border:none;
+}
+.form-group{
+    margin-bottom: 8px;
+    /* gap: 24px; */
+    
+    }
+
+.form-input {
+    width: 360px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.form-icons {
+    position:absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input:hover .form-icons,
+.form-input:focus .form-icons {
+    fill: #4D5AE5;
+}
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+.input-check-txt  {
+
+}
+
+.input-check:checked+.label-check-txt>.span-checkbox {
+    border: none;
+    fill: var(--light-cloud);
+    background-color: var(--primary-brand-iris);
+}
+.send-btn {
+    width: 169px;
+    height: 56px;
+    padding: 16px 32px;
+    font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.04em;
+
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #4D5AE5;
+        color: #FFFFFF;
+        border-radius: 4px;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            /*доданий стиль для визначення типу курсору на кнопці*/
+            border: none;
+
+}
+.send-btn:hover,
+.send-btn:focus {
+background-color: #404BBF;
 }
