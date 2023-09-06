@@ -565,8 +565,8 @@ box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
 } 
 
 /* hidden */
-
- /* .is-hidden {
+/* 
+ .is-hidden {
      opacity: 0;
      pointer-events: none;
      visibility: hidden;
@@ -576,7 +576,7 @@ box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: left;
+    justify-content: center;
     width: 408px;
     min-height: 584px;
     border-radius: 4px;
@@ -630,38 +630,22 @@ box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
 }
 .form-field {
     margin-bottom: 8px;
-
-    /* margin-top: 16px;    
-    max-width: 360px;
-    display: flex;        
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px; */
-    /* border: 1px solid #434455; */
 }
 .field-label {
     font-size: 12px;
     line-height: 1.17;  /* 116.667% */
     letter-spacing: 0.04em;
     color: var(--LIGHT-SLATE, #8e8f99);
+    /* щоб задавти відступи label треба перевести в блоковий елемент */
     display: block;
     margin-bottom: 4px;
-
     font-family: Roboto;
     font-style: normal;
     font-weight: 400;   
 }
 .field-input-container {   
     position: relative;
-} 
-    /* width: 360px;
-    height: 40px;
-    position: relative;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 24px;
-*/
+}    
 .field-input {
     width: 100%;
     height: 40px;
@@ -691,7 +675,6 @@ box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
 .field-input:focus + .field-input-icon {
     fill: #4D5AE5;    
 }
-
 .form-textarea {
     margin-bottom: 16px;
 }
@@ -722,10 +705,8 @@ box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
     line-height: 1.17;
     letter-spacing: 0.04em;
     color: var(--LIGHT-SLATE, #8e8f99);
-    
-
 }
-.form-checkbox {
+.form-checkbox-custom {
     width: 16px;
     height: 16px;
     border: 1px solid rgba(46, 47, 66, 0.4);
@@ -734,19 +715,11 @@ box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    fill: transparent;    
+    fill: transparent;
+    margin-right: 8px;    
 }
-/* .form-checkbox-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
 
-.chekbox-input {
-    margin-right: 8px;
-}
-.chekbox-input:checked + .form-chekbox-label .form-checkbox {
+.chekbox-input:checked + .form-chekbox-label .form-checkbox-custom {
     background-color: #404bbf;
     border: none;
     fill:#F4F4FD;
@@ -768,55 +741,16 @@ box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
     color: #ffffff;
     cursor: pointer;
     background-color: #4D5AE5;
+    /* background: var(--IRIS, #4D5AE5); */
     border: none;
-    border-radius: 4px;
+    border-radius: 4px;    
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-.empty {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
- 
-
-/* .textarea::placeholder {
-    padding-left: 36px;
-    opacity: 0.5;
-} */
-
-.input-check:checked+.label-check-txt>.span-checkbox {
-    border: none;
-    fill: var(--light-cloud);
-    background-color: var(--primary-brand-iris);
-}
-
-
-.send-btn {
-    width: 169px;
-    height: 56px;
-    margin-top: 24px;
-    padding: 16px 32px;
-    font-family: "Roboto", sans-serif;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 1.5;
-        letter-spacing: 0.04em;
-
-    display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #4D5AE5;
-        color: #FFFFFF;
-        border-radius: 4px;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            /*доданий стиль для визначення типу курсору на кнопці*/
-            border: none;
-
-}
-.send-btn:hover,
-.send-btn:focus {
-background-color: #404BBF;
+.form-send-btn:hover,
+.form-send-btn:focus {
+    background-color: #404BBF;
 }
